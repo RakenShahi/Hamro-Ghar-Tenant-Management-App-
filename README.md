@@ -24,6 +24,7 @@ Here are some of the screenshots of the app's user interface.
 ![Add Tenant Page](https://user-images.githubusercontent.com/30067218/126899245-419410e4-40df-4fad-8e4a-eb0bf485593f.jpg)
 ![List of Active Tenants](https://user-images.githubusercontent.com/30067218/126899254-03e74600-0a96-413b-8e10-d96ead4dabfb.jpg)
 ![Tenant Details Page](https://user-images.githubusercontent.com/30067218/126899259-774c84e3-1dc9-4823-bbe5-57b6ed591cc1.jpg)
-![Calculate Invoice Page](https://user-images.githubusercontent.com/30067218/126899262-165a1ae8-cb02-4e54-b1eb-350c3c694940.png)
+![Calculate Invoice](https://user-images.githubusercontent.com/30067218/126899800-91719d1e-df6d-4afc-9d67-fd49c2053bae.jpg)
+
 
 
