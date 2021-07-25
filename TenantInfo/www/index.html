@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <!--        Meta tags used-->
+        <meta charset="utf-8">
+<!--        <meta http-equiv="Content-Security-Policy" content="default-src *; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'; media-src *; images-src * filesystem: data:">-->
+        <meta http-equiv="Content-Security-Policy" script-src='unsafe-inline';>
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+        <meta name="color-scheme" content="light dark">
+
+        <!--        css files-->
+        <link rel="stylesheet" href="css/jquery.mobile.css">
+        <link rel="stylesheet" href="css/tenant.css">
+
+        <!--        js files-->
+        <script src="js/jquery.js"></script>
+        <script src="js/jquery.mobile.js"></script>
+        <script language="javascript" src="js/crossdomain-ajax.js"></script>
+
+        <!--        title-->
+        <title>Hamro Ghar</title>
+    </head>
+
+    <body>
+    <!--Main Page-->
+    <div data-role="page" id="homePage" >
+        <div data-role="header" class="ui-bar"data-inline="true">
+            <h1>Hamro Ghar</h1>
+        </div>
+
+        <div data-role="content" >
+            <!--Placing the menu icon in grids 2 in a row-->
+
+            <div class="ui-grid-a">
+                <!-- Add Tenant Block -->
+                <div class="ui-block-a">
+                    <div style="text-align: center;">
+
+                        <a href="#" id="addTenantBtn" data-inline="true" data-role="button">
+                            <img src="images/add-user.png" alt="Add-User">
+
+                        <div class="ui-bar ui-bar-a" >
+                            Add<br>Tenant
+                        </div>
+                        </a>
+                    </div>
+                </div>
+                <!-- Tenant Details Block -->
+                <div class="ui-block-b">
+                    <div style="text-align: center;">
+                        <a href="#" id="viewTenantsBtn" data-inline="true" data-role="button" >
+                            <img src="images/shortlist.png" alt="View Tenant">
+
+                        <div class="ui-bar ui-bar-a">
+                            Tenant<br>Details
+                        </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!--Placing the menu icon in grids 2 in a row-->
+            <div class="ui-grid-a">
+                <div class="ui-block-a">
+                    <div style="text-align: center;">
+                        <a href="#" id="viewTransactionsBtn" data-inline="true" data-role="button" >
+                            <img src="images/money-transfer.png" alt="View Transaction">
+
+                            <div class="ui-bar ui-bar-a">
+                                View<br>Invoices
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="ui-block-b">
+                    <div style="text-align: center;">
+                        <a href="#" id="calculateInvoicesBtn" data-inline="true" data-role="button">
+                            <img src="images/calculator.png" alt="Calculate Invoice">
+                            <div class="ui-bar ui-bar-a">
+                                Calculate<br>Invoices
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!--Placing the menu icon in grids 2 in a row-->
+            <div class="ui-grid-a">
+                <div class="ui-block-a">
+                    <div style="text-align: center;">
+                        <a href="#" id="deleteTenantBtn" data-inline="true" data-role="button" >
+                            <img src="images/remove-user.png" alt="Delete Tenant">
+                            <div class="ui-bar ui-bar-a">
+                                Delete<br>Tenant
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="ui-block-b">
+                    <div style="text-align: center;">
+                        <a href="#" id="aboutUsBtn" data-inline="true" data-role="button" >
+                            <img src="images/information.png" alt="About Us">
+                            <div class="ui-bar ui-bar-a">
+                                About<br>Us.
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div data-role="footer" class="ui-bar">
+            <div style="text-align: center;">&copy; COIT20269: Creative Work: Bishal Budhathoki & Raken Shahi.</div>
+        </div>
+    </div>
+<!--Main page ends-->
+
+<!-- Page for Tenant Details-->
+    <div data-role="page" id="allTenants" >
+        <div data-role="header" data-position="fixed" data-inline="true" >
+            <a href="#homePage" data-role="button" data-inline="true" >Home</a>
+            <h1>All Active Tenants</h1>
+        </div>
+        <!-- Tenant List-->
+        <div data-role="content" >
+            <div class="content scroller">
+                <ul id="allTenantList">
+                </ul>
+            </div>
+        </div>
+        <!-- Footer-->
+        <div data-role="footer" class="ui-bar">
+            <div style="text-align: center;">&copy; COIT20269: Creative Work: Bishal Budhathoki & Raken Shahi.</div>
+        </div>
+
+    </div>
+<!--page ends-->
+
+<!-- Page for Viewing Transaction-->
+<div data-role="page" id="transactionPage" >
+    <div data-role="header" data-position="fixed" data-inline="true" >
+        <a href="#homePage" data-role="button" data-inline="true" >Home</a>
+        <h1>View Invoice</h1>
+    </div>
+
+    <div data-role="content" >
+        <h1>Select Tenant to view his/her Transaction(s).</h1>
+        <div class="content scroller">
+            <ul id="selectForTransaction">
+            </ul>
+        </div>
+    </div>
+
+    <div data-role="footer" class="ui-bar">
+        <div style="text-align: center;">&copy; COIT20269: Creative Work: Bishal Budhathoki & Raken Shahi.</div>
+    </div>
+</div>
+<!--page ends-->
+
+<!-- Page for Calculating Invoices-->
+<div data-role="page" id="calculationListPage" >
+    <div data-role="header" data-position="fixed" data-inline="true" >
+        <a href="#homePage" data-role="button" data-inline="true" >Home</a>
+        <h1>Calculate Invoices</h1>
+    </div>
+
+    <div data-role="content" >
+        <h1>Select the Tenant for calculating Invoice.</h1>
+        <div class="content scroller">
+            <ul id="selectForCalculation">
+            </ul>
+        </div>
+    </div>
+
+    <div data-role="footer" class="ui-bar">
+        <div style="text-align: center;">&copy; COIT20269: Creative Work: Bishal Budhathoki & Raken Shahi.</div>
+    </div>
+</div>
+<!--page ends-->
+
+<!-- Page for deleting of Tenants-->
+<div data-role="page" id="deleteTenantPage" >
+    <div data-role="header" data-position="fixed" data-inline="true" >
+        <a href="#homePage" data-role="button" data-inline="true" >Home</a>
+        <h1>Remove Tenant</h1>
+    </div>
+
+    <div data-role="content" >
+        <h1>Select the Tenant to delete.</h1>
+        <div class="content scroller">
+            <ul id="deleteTenantList">
+            </ul>
+        </div>
+    </div>
+
+    <div data-role="footer" class="ui-bar">
+        <div style="text-align: center;">&copy; COIT20269: Creative Work: Bishal Budhathoki & Raken Shahi.</div>
+    </div>
+</div>
+<!-- page ends-->
+
+<!-- Dialog page -->
+<div data-role="page" id="confirm" data-dialog="true">
+    <div data-role="header">
+        <h1>DELETE TENANT</h1>
+    </div>
+
+    <div data-role="main" class="ui-content">
+        <h3>Do you want to delete this Tenant?</h3>
+        <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-a" data-rel="back">Cancel</a>
+        <a id="deleteYesBtn" data-role="button" data-inline="true">Yes</a>
+    </div>
+</div>
+<!--Dialog page ends-->
+
+<!--about page-->
+<div data-role="page" id="aboutUsPage">
+
+    <div data-role="header" data-position="fixed" data-inline="true" >
+        <a href="#homePage" data-role="button" data-inline="true" data-icon="home">Home</a>
+        <h1 data-inline="true">About Us.</h1>
+    </div>
+
+    <div data-role="content">
+        <h2 >About Us.</h2>
+        <p>This is "Hamro Ghar" app developed by <b> Bishal Budhathoki & Raken shahi </b>
+            which literally Means “Our Home”, as a Project (creative work) for COIT20269 Mobile Web Apps.<br>
+            The idea behind the app comes from the problem general people faces when that time of the month
+            comes to pay the landlord. Issues like past remaining amount or like unclear transaction that occurred.
+            Now from this app that we are developing, our intention is to solve that issue providing landlord to
+            manage tenant details along with all bills and past transaction record. Now this will provide clarity
+            in every transaction that occurs, and every detail are backed up on the cloud, so no data is stored on
+            the device.</p>
+        <br>
+    </div>
+    <div data-role="footer" class="ui-bar" data-inline="true">
+        <div style="text-align: center;">&copy; COIT20269: Creative Work: Bishal Budhathoki & Raken Shahi.</div>
+    </div>
+</div>
+<!--page ends-->
+
+<!--Add tenant page-->
+    <div id="addTenant" data-role="page">
+        <div data-role="header" data-position="fixed" data-inline="true" >
+            <a id="fieldClean" href="#" data-inline="true" data-role="button" >Clear</a>
+            <h1 id="dayName" data-inline="true">Add Tenant</h1>
+            <a href="#homePage" data-role="button" data-inline="true" >Home</a>
+        </div>
+
+        <div data-role="content">
+            <label for="tenantName">Tenant Name:</label>
+            <input type="text" id="tenantName" placeholder="Full Name"/>
+
+            <label for="permanentAddress">Home Address:</label>
+            <input type="text" id="permanentAddress" placeholder="Home Address"/>
+
+            <label for="startingDate">Lease Start Date:</label>
+            <input type="date" id="startingDate" placeholder="MM/DD/YYYY format"/>
+
+            <label for="contactNumber">Contact Number:</label>
+            <input type="number" id="contactNumber" placeholder="numeric"/>
+
+            <label for="citizenshipNumber">Citizenship Number</label>
+            <input type="number" id="citizenshipNumber" placeholder="8 digit numeric"/>
+
+            <label for="gender">Gender:</label>
+            <select id="gender" >
+                <option value="0"></option>
+                <option value="1">Male</option>
+                <option value="2">Female</option>
+            </select>
+            <a id="saveTenantBtn" data-role="button" data-mini="true">Save Tenant</a>
+        </div>
+
+        <div data-role="footer" class="ui-bar">
+            <div style="text-align: center;">&copy; COIT20269: Creative Work: Bishal Budhathoki & Raken Shahi.</div>
+        </div>
+    </div>
+<!--page ends-->
+
+    <!--Tenant Detail page-->
+    <div data-role="page" id="getLogsPage">
+        <div data-role="header" data-position="fixed">
+            <a href="#homePage" data-role="button" data-inline="true" >Home</a>
+            <h1 data-inline="true">Tenant Information</h1>
+        </div>
+
+        <div data-role="content">
+            <h2 >Tenant Details</h2>
+            <div class="ui-grid-a">
+                <div id="singleTenantDetail">
+                </div>
+            </div>
+            <br>
+        </div>
+
+        <div data-role="footer" class="ui-bar" data-inline="true">
+            <div style="text-align: center;">&copy; COIT20269: Creative Work: Bishal Budhathoki & Raken Shahi.</div>
+        </div>
+
+    </div>
+<!--page ends-->
+
+<!--Transaction Detail page-->
+<div data-role="page" id="getTransactionPage">
+    <div data-role="header" data-position="fixed" data-inline="true" >
+        <a href="#homePage" data-role="button" data-inline="true" data-icon="home">Home</a>
+        <h1 data-inline="true">View Invoice</h1>
+    </div>
+
+    <div data-role="content">
+        <h2 >View Transaction</h2>
+        <p>Transaction Details</p>
+        <div class="viewLists">
+            <ul id="transactionList" data-role="listview">
+            </ul>
+        </div>
+        <br>
+    </div>
+
+    <div data-role="footer" class="ui-bar" data-inline="true">
+        <div style="text-align: center;">&copy; COIT20269: Creative Work: Bishal Budhathoki & Raken Shahi.</div>
+    </div>
+</div>
+<!--page ends-->
+
+<!--Calculate Invoice page-->
+<div data-role="page" id="calculateInvoice" >
+    <div data-role="header" data-position="fixed">
+        <a id="clearInvoiceBtn"href="#" data-inline="true" data-role="button" data-icon="delete">Clear</a>
+        <h1 id=""data-inline="true">Calculate Invoice</h1>
+        <a href="#homePage" data-icon="home">Home</a>
+    </div>
+
+    <div data-role="content">
+        <h1> Calculate</h1>
+
+        <label for="monthlyRentFixed">Monthly rent fixed:</label>
+        <input type="number" id="monthlyRentFixed" placeholder="numeric"/>
+
+        <label for="drinkingWaterBill">Drinking Water Bill:</label>
+        <input type="number" id="drinkingWaterBill" placeholder="numeric"/>
+
+        <label for="miscellaneousCharge">Miscellaneous Charge:</label>
+        <input type="number" id="miscellaneousCharge" placeholder="numeric"/>
+
+        <label >Electricity Reading:</label>
+        <label for="pricePerWatt">Price Per Watt:</label>
+        <input type="number" id="pricePerWatt" placeholder="numeric"/>
+
+        <label for="initialMeterReading">Initial Meter Reading</label>
+        <input type="number" id="initialMeterReading" placeholder="numeric"/>
+
+        <label for="finalMeterReading">Final Meter Reading:</label>
+        <input type="number" id="finalMeterReading" placeholder="numeric"/>
+
+        <a href="#" id="calcElectricityBillBtn" data-inline="true" data-role="button" >Calculate Electricity Bill </a>
+        <label for="electricityConsumed">Electricity Bill:</label>
+        <input type="number" id="electricityConsumed" readonly="readonly" placeholder="numeric"/>
+
+        <label for="paidDateField">Calculated Date:</label>
+        <input type="date" id="paidDateField" placeholder="numeric"/>
+
+        <a href="#" id="totalBill" data-inline="true" data-role="button" >Calculate Total Bill </a>
+        <a href="#" id="saveInvoiceBtn" data-inline="true" data-role="button" >Save Invoice</a>
+
+        <label for="totalAmount"><h4>The total bill is:</h4></label>
+        <input type="number" id="totalAmount" readonly="readonly" placeholder="numeric"/>
+
+    </div>
+
+    <div data-role="footer" class="ui-bar">
+        <div style="text-align: center;">&copy; COIT20269: Creative Work: Bishal Budhathoki & Raken Shahi.</div>
+    </div>
+
+</div>
+<!--calculate invoice ends here-->
+
+<!--Listing Tenant name with id-->
+    <div id="TenantList">
+        <li id="Tenant_Name">
+            <span class="id" style="display: none"></span>
+            <span class="tenant_name" ></span>
+        </li>
+    </div>
+
+<!--listing Tenants details-->
+<div id="TenantDetail">
+    <div id="Tenant_Data">
+        <span class="id" id="TenantID" style="display: none"></span>
+        <span class="tenant_name" ></span>
+        <span class="original_address" ></span>
+        <span class="starting_date" ></span>
+        <span class="contact_number" ></span>
+        <span class="citizenship_number" style="display: none"></span>
+        <span class="gender" ></span>
+    </div>
+</div>
+
+<!--Listing for Transaction details-->
+<div id="TenantTransactionList">
+    <li id="item_transaction">
+        <span class="monthlyRent"></span>
+        <span class="waterReceipt"></span>
+        <span class="miscellaneous"></span>
+        <span class="initialMeterReading"></span>
+        <span class="finalMeterReading"></span>
+        <span class="pricePerUnit"></span>
+        <span class="totalElectricityBill"></span>
+        <span class="totalBill"></span>
+        <span class="paidDate"></span>
+    </li>
+</div>
+
+    <script src="cordova.js"></script>
+    <script src="js/index.js"></script>
+
+    </body>
+    <!--End Body-->
+</html>

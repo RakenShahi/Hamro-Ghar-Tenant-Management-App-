@@ -1,0 +1,73 @@
+img{
+    height:auto;
+    width:50%;
+}
+
+ul{
+    list-style-type: circle;
+    position: relative;
+    margin:30px auto 0;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+ul li{
+    display: flex;
+    background: #FFFFFF;
+    padding: 10px 20px;
+    color: #0088bb;
+    margin: 10px ;
+    transition: -5s;
+}
+
+ul li:hover{
+    color: #FFFFFF;
+    background:#22aadd;
+}
+
+ui-listview, .ui-listview > li {
+     margin: 10px;
+     padding:10px;
+    list-style: none;
+}
+
+#viewLists{
+    padding: 10px;
+    margin-left: 20px;
+}
+
+#Tenant_Data {
+    display: none;
+}
+
+li span.ui-icon-arrow-r {
+    display: none;
+}
+
+#singleTenantDetail  {
+    background: #FFFFFF;
+}
+
+#singleTenantDetail li:hover {
+    color: #0088bb;
+    background: #f3f3f3;
+}
+
+#singleTenantDetail li span{
+    padding: 30px;
+}
+
+#singleTenantDetail li span.original_address{
+    display: block;
+}
+
+#singleTenantDetail li span.starting_date{
+    display: block;
+}
+
+span {
+    line-height: 20px;
+    font-size: 24px;
+    display: inline-block;
+    margin-right: 10px;
+}
